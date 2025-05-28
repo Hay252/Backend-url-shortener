@@ -30,7 +30,7 @@ app.post("/api/shorturl", function(req, res) {
   const hostname = urlParser.parse(inputUrl).hostname;
 
   dns.lookup(hostname, (err) => {
-    if(err) return res.json({error: "Invalid Url"});
+    if(err) return res.json({error: "invalid url"});
 
     const short = urls.length + 1;
     urls.push({original_url: inputUrl, short_url: short});
